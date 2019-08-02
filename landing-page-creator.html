@@ -335,8 +335,8 @@
               </div>
             </section>
 
-            <section class="hl_page-creator--section"
-              style="background-color: #f4f4f4; padding: 80px 0; text-align: center;" v-if="rows.length > 0">
+            <!-- <section class="hl_page-creator--section"
+              style="background-color: #f4f4f4; padding: 80px 0; text-align: center;" >
               <div class="hl_page-creator--actions">
                 <div class="move-actions">
                   <span data-tooltip="tooltip" data-placement="right" title="Up"><i
@@ -373,7 +373,7 @@
                 <span class="add-new-row" data-tooltip="tooltip" data-placement="bottom" title="Add New Row"><i
                     class="icon icon-plus"></i></span>
 
-                <!-- <div class="hl_page-creator--column">
+                <div class="hl_page-creator--column">
                   <div class="hl_page-creator--element">
                     <div class="hl_page-creator--actions">
                       <div class="more-actions">
@@ -415,14 +415,15 @@
                         corrupti eaque illo nam quae. Vel nesciunt, libero ipsa similique ipsum ducimus fuga magni.
                         Voluptatum iste pariatur cum doloremque est.</p>
                     </div>
-                  </div>
-                </div> -->
+                  </div> 
+                </div> 
 
-                <app-pane v-for="(row, index) in rows" :key="index"></app-pane>
-
-
+                
+                
               </div>
-            </section>
+            </section> -->
+
+            <app-pane v-for="(row, index) in rows" :key="index"></app-pane>
 
 
             <!-- <section class="hl_page-creator--section">

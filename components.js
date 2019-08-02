@@ -286,6 +286,43 @@ Vue.component('appHeader', {
 Vue.component('appPane', {
 
   template: `
+  <section class="hl_page-creator--section"
+  style="background-color: #f4f4f4; padding: 80px 0; text-align: center;" >
+  <div class="hl_page-creator--actions">
+    <div class="move-actions">
+      <span data-tooltip="tooltip" data-placement="right" title="Up"><i
+          class="icon icon-arrow-up-2"></i></span>
+      <span data-tooltip="tooltip" data-placement="right" title="Down"><i
+          class="icon icon-arrow-down-2"></i></span>
+    </div>
+    <div class="more-actions">
+      <span data-tooltip="tooltip" data-placement="left" title="Settings"><i class="fas fa-cog"></i></span>
+      <span data-tooltip="tooltip" data-placement="left" title="Clone"><i class="far fa-eye"></i></span>
+      <span data-tooltip="tooltip" data-placement="left" title="Save"><i class="far fa-copy"></i></span>
+      <span data-tooltip="tooltip" data-placement="left" title="Delete"><i
+          class="far fa-trash-alt"></i></span>
+    </div>
+  </div>
+  <span class="add-new-section" data-tooltip="tooltip" data-placement="bottom" title="Add New Section"><i
+      class="icon icon-plus"></i></span>
+  <div class="hl_page-creator--row">
+    <div class="hl_page-creator--actions">
+      <div class="move-actions">
+        <span data-tooltip="tooltip" data-placement="top" title="Up"><i
+            class="icon icon-arrow-up-2"></i></span>
+        <span data-tooltip="tooltip" data-placement="top" title="Down"><i
+            class="icon icon-arrow-down-2"></i></span>
+      </div>
+      <div class="more-actions">
+        <span data-tooltip="tooltip" data-placement="top" title="Settings"><i class="fas fa-cog"></i></span>
+        <span data-tooltip="tooltip" data-placement="top" title="Clone"><i class="far fa-eye"></i></span>
+        <span data-tooltip="tooltip" data-placement="top" title="Save"><i class="far fa-copy"></i></span>
+        <span data-tooltip="tooltip" data-placement="top" title="Delete"><i
+            class="far fa-trash-alt"></i></span>
+      </div>
+    </div>
+    <span class="add-new-row" data-tooltip="tooltip" data-placement="bottom" title="Add New Row"><i
+        class="icon icon-plus"></i></span>
       <div class="hl_page-creator--column">
       <div class="hl_page-creator--element">
         <div class="hl_page-creator--actions">
@@ -330,6 +367,8 @@ Vue.component('appPane', {
         </div>
       </div>
     </div>
+    </div>
+    </section>
   `
 })
 

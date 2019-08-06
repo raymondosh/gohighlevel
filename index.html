@@ -462,7 +462,7 @@
 
     <section class="hl_wrapper nav-shrink d-flex">
 
-      <section class="hl_wrapper--inner page-creator" id="page-creator">
+      <section class="hl_wrapper--inner page-creator" id="page-creator" :class="{'--menu-active': showRow}">
 
         <section class="hl_page-creator--main">
           <div class="hl_page-creator--menu">
@@ -590,7 +590,7 @@
               </div>
               <span class="add-new-section" data-tooltip="tooltip" data-placement="bottom" title="Add New Section"><i
                   class="icon icon-plus"></i></span>
-              <div href="#" class="new-row-blank">
+              <div href="#" class="new-row-blank" @click="openRow">
                 <span class="btn btn-light5 btn-slim">Add New Row</span>
               </div>
             </section>
@@ -970,7 +970,7 @@
   </section>
   <!-- END of .hl_page-creator--sections-group -->
 
-  <section class="hl_page-creator--rows-group">
+  <section class="hl_page-creator--rows-group" :class="{'active': showRow}">
     <a href="#" class="close-group" id="close-row-group"><i class="icon icon-close"></i></a>
     <div class="hl_row-group">
       <div class="tab-content" id="hl_row-group-tab">

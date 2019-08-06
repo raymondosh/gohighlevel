@@ -8,8 +8,8 @@ Vue.component('appPane', {
   },
   template: `
   <section class="hl_page-creator--section"
-  style="background-color: #f4f4f4; padding: 80px 0; text-align: center;" @mouseover="isHovering = true" 
-  @mouseout="isHovering = false" 
+  style="background-color: #f4f4f4; padding: 80px 0; text-align: center;" @mouseover.stop="isHovering = true" 
+  @mouseout.stop="isHovering = false" 
   :class="{'active': isHovering}">
   <div class="hl_page-creator--actions">
     <div class="move-actions">
@@ -28,8 +28,8 @@ Vue.component('appPane', {
   </div>
   <span class="add-new-section" data-tooltip="tooltip" data-placement="bottom" title="Add New Section"><i
       class="icon icon-plus"></i></span>
-  <div class="hl_page-creator--row" @mouseover="isRow = true" 
-  @mouseout="isRow = false" 
+  <div class="hl_page-creator--row" @mouseover.stop="isRow = true" 
+  @mouseout.stop="isRow = false" 
   :class="{'active': isRow}">
     <div class="hl_page-creator--actions">
       <div class="move-actions">
@@ -86,8 +86,8 @@ Vue.component('appHeadline', {
   },
   template: `
   <div>
-   <div class="hl_page-creator--element" @mouseover="isEl = true" 
-   @mouseout="isEl = false" 
+   <div class="hl_page-creator--element" @mouseover.stop="isEl = true" 
+   @mouseout.stop="isEl = false" 
    :class="{'active': isEl}">
   <div class="hl_page-creator--actions">
     <div class="more-actions">
@@ -112,8 +112,15 @@ Vue.component('appHeadline', {
 })
 
 Vue.component('appParagraph', {
+  data() {
+    return {
+      isEl: false
+    }
+  },
   template: `
-<div class="hl_page-creator--element">
+<div class="hl_page-creator--element" @mouseover.stop="isEl = true" 
+@mouseout.stop="isEl = false" 
+:class="{'active': isEl}">
   <div class="hl_page-creator--actions">
     <div class="more-actions">
       <span data-tooltip="tooltip" data-placement="top" title="Move"><i
@@ -160,7 +167,9 @@ new Vue({
   data() {
     return {
       rows: [],
+      // isEl: false,
       // isHovering: false
+      showRow: false,
       activeRow: null
     }
   },
@@ -176,6 +185,10 @@ new Vue({
         id: this.rows[this.activeRow].elements.length,
         type: type
       })
+    },
+    openRow() {
+      this.showRow = !this.showRow;
+      console.log('hello')
     }
   }
 })

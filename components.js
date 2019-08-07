@@ -1,9 +1,10 @@
-Vue.component('appPane', {
+Vue.component('appRow', {
   data() {
     return {
       isHovering: false,
       isRow: false,
       activeRow: null,
+      
     }
   },
   template: `
@@ -50,11 +51,9 @@ Vue.component('appPane', {
         class="icon icon-plus"></i></span>
 
     <div class="hl_page-creator--column">
-      <div href="#" class="new-element-blank">
-        <span class="btn btn-light6 btn-slim">Add New Element</span>
-      </div> 
+    
 
-      <!-- <slot name="title"></slot> -->
+      <slot name="title"></slot>
 
 
       <slot></slot>
@@ -95,7 +94,7 @@ Vue.component('appHeadline', {
           class="fas fa-arrows-alt"></i></span>
       <span data-tooltip="tooltip" data-placement="top" title="Clone"><i
           class="far fa-eye"></i></span>
-      <span data-tooltip="tooltip" data-placement="top" title="Save"><i
+      <span data-tooltip="tooltip" data-placement="top" title="Save"><
           class="far fa-copy"></i></span>
       <span data-tooltip="tooltip" data-placement="top" title="Delete"><i
           class="far fa-trash-alt"></i></span>
@@ -163,13 +162,12 @@ Vue.component('RowElement', {
 
 
 new Vue({
-  el: '#app1',
+  el: '#el',
   data() {
     return {
       rows: [],
-      // isEl: false,
-      // isHovering: false
       showRow: false,
+      showGroup: false,
       activeRow: null
     }
   },
@@ -188,7 +186,9 @@ new Vue({
     },
     openRow() {
       this.showRow = !this.showRow;
-      console.log('hello')
+    },
+    openGroup() {
+      this.showGroup = !this.showGroup;
     }
   }
 })

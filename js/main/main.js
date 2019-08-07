@@ -558,7 +558,7 @@ $(function () {
     $('#page-creator').removeClass('--menu-active');
     $('.hl_page-creator--rows-group').removeClass('active');
   });
-  $('#row-group .dropdown-item').on('click', function () {
+  $('#row-group .dropdown-item .add-new-row').on('click', function () {
     $('#page-creator').addClass('--menu-active');
     $('.hl_page-creator--rows-group').addClass('active');
   });

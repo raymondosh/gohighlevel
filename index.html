@@ -9,6 +9,7 @@
   <meta name="format-detection" content="telephone=no">
   <!--Main Styles (compiled & minified by GulpJS)-->
   <link rel="stylesheet" type="text/css" href="./css/styles.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="styl.css"> -->
   <!-- Dependency Scripts (jQuery v3.1.1 & Bootstrap v4 beta 3) -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -44,7 +45,7 @@
 
 
 <body>
-  <div id="app1">
+  <div id="el">
 
     <nav class="hl_navbar shrink" id="navbar">
       <div class="hl_navbar--inner">
@@ -597,105 +598,19 @@
 
 <!-- Add section here in case for testing -->
 
-        <app-pane v-for="(row, index) in rows" :key="index" @click.native="activeRow = index">
+        <app-row v-for="(row, index) in rows" :key="index" @click.native="activeRow = index">
           <!-- <div href="#" class="new-element-blank" slot="title" @click.native="activeRow = index"> 
         <span class="btn btn-light6 btn-slim">Add New Element</span>
       </div>  -->
+      <div href="#" class="new-element-blank" @click="openGroup" v-if="row.elements.length == 0">
+          <span class="btn btn-light6 btn-slim">Add New Element</span>
+        </div> 
             <div v-for="element in row.elements">
               <component :is="element.type"></component>
             </div>
-        </app-pane>
+        </app-row>
 
-        <!-- <section class="hl_page-creator--section">
-              <div class="hl_page-creator--actions">
-                <div class="move-actions">
-                  <span data-tooltip="tooltip" data-placement="right" title="Up"><i
-                      class="icon icon-arrow-up-2"></i></span>
-                  <span data-tooltip="tooltip" data-placement="right" title="Down"><i
-                      class="icon icon-arrow-down-2"></i></span>
-                </div>
-                <div class="more-actions">
-                  <span data-tooltip="tooltip" data-placement="left" title="Settings"><i class="fas fa-cog"></i></span>
-                  <span data-tooltip="tooltip" data-placement="left" title="Clone"><i class="far fa-eye"></i></span>
-                  <span data-tooltip="tooltip" data-placement="left" title="Save"><i class="far fa-copy"></i></span>
-                  <span data-tooltip="tooltip" data-placement="left" title="Delete"><i
-                      class="far fa-trash-alt"></i></span>
-                </div>
-              </div>
-              <span class="add-new-section" data-tooltip="tooltip" data-placement="bottom" title="Add New Section"><i
-                  class="icon icon-plus"></i></span>
-              <div class="hl_page-creator--row">
-                <div class="hl_page-creator--actions">
-                  <div class="move-actions">
-                    <span data-tooltip="tooltip" data-placement="top" title="Up"><i
-                        class="icon icon-arrow-up-2"></i></span>
-                    <span data-tooltip="tooltip" data-placement="top" title="Down"><i
-                        class="icon icon-arrow-down-2"></i></span>
-                  </div>
-                  <div class="more-actions">
-                    <span data-tooltip="tooltip" data-placement="top" title="Settings"><i class="fas fa-cog"></i></span>
-                    <span data-tooltip="tooltip" data-placement="top" title="Clone"><i class="far fa-eye"></i></span>
-                    <span data-tooltip="tooltip" data-placement="top" title="Save"><i class="far fa-copy"></i></span>
-                    <span data-tooltip="tooltip" data-placement="top" title="Delete"><i
-                        class="far fa-trash-alt"></i></span>
-                  </div>
-                </div>
-                <span class="add-new-row" data-tooltip="tooltip" data-placement="bottom" title="Add New Row"><i
-                    class="icon icon-plus"></i></span>
-                <div class="hl_page-creator--column">
-                  <div class="hl_page-creator--element">
-                    <div class="hl_page-creator--actions">
-                      <div class="more-actions">
-                        <span data-tooltip="tooltip" data-placement="top" title="Move"><i
-                            class="fas fa-arrows-alt"></i></span>
-                        <span data-tooltip="tooltip" data-placement="top" title="Clone"><i
-                            class="far fa-eye"></i></span>
-                        <span data-tooltip="tooltip" data-placement="top" title="Save"><i
-                            class="far fa-copy"></i></span>
-                        <span data-tooltip="tooltip" data-placement="top" title="Delete"><i
-                            class="far fa-trash-alt"></i></span>
-                      </div>
-                    </div>
-                    <span class="add-new-element" data-tooltip="tooltip" data-placement="bottom"
-                      title="Add New Element"><i class="icon icon-plus"></i></span>
-                    <div class="element-container">
-                      <h3>Heading Text Goes Here</h3>
-                    </div>
-                  </div>
-                  <div class="hl_page-creator--element">
-                    <div class="hl_page-creator--actions">
-                      <div class="more-actions">
-                        <span data-tooltip="tooltip" data-placement="top" title="Move"><i
-                            class="fas fa-arrows-alt"></i></span>
-                        <span data-tooltip="tooltip" data-placement="top" title="Clone"><i
-                            class="far fa-eye"></i></span>
-                        <span data-tooltip="tooltip" data-placement="top" title="Save"><i
-                            class="far fa-copy"></i></span>
-                        <span data-tooltip="tooltip" data-placement="top" title="Delete"><i
-                            class="far fa-trash-alt"></i></span>
-                      </div>
-                    </div>
-                    <span class="add-new-element" data-tooltip="tooltip" data-placement="bottom"
-                      title="Add New Element"><i class="icon icon-plus"></i></span>
-                    <div class="element-container">
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus sint at cum ratione, itaque
-                        quas assumenda consequatur, exercitationem ipsa necessitatibus, eaque nemo aliquid quasi.
-                        Doloremque dolor pariatur ea quod distinctio?</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="hl_page-creator--column">
-                  <div href="#" class="new-element-blank">
-                    <span class="btn btn-light6 btn-slim">Add New Element</span>
-                  </div>
-                </div>
-                <div class="hl_page-creator--column">
-                  <div href="#" class="new-element-blank">
-                    <span class="btn btn-light6 btn-slim">Add New Element</span>
-                  </div>
-                </div>
-              </div>
-            </section> -->
+       
 
   </div>
   </section>
@@ -974,7 +889,7 @@
     <a href="#" class="close-group" id="close-row-group"><i class="icon icon-close"></i></a>
     <div class="hl_row-group">
       <div class="tab-content" id="hl_row-group-tab">
-        <div class="tab-pane fade" id="add-row" role="tabpanel" aria-labelledby="add-row-tab">
+        <div class="tab-pane fade" id="add-row" role="tabpanel" aria-labelledby="add-row-tab" :class="{'active': showRow, 'show': showRow }">
           <div class="add-row">
             <h2>Add Row</h2>
             <div class="add-row-body">
@@ -1192,11 +1107,11 @@
   </section>
   <!-- END of .hl_page-creator--columns-group -->
 
-  <section class="hl_page-creator--element-group">
+  <section class="hl_page-creator--element-group" :class="{'active': showGroup}">
     <a href="#" class="close-group" id="close-element-group"><i class="icon icon-close"></i></a>
     <div class="hl_element-group">
       <div class="tab-content" id="hl_element-group-tab">
-        <div class="tab-pane fade" id="add-element" role="tabpanel" aria-labelledby="add-element-tab">
+        <div class="tab-pane fade" id="add-element" role="tabpanel" aria-labelledby="add-element-tab" :class="{'active': showGroup, 'show': showGroup }">
           <div class="add-element">
             <div class="add-element-menu">
               <ul>
